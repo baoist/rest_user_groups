@@ -16,9 +16,9 @@ docker-compose run web alembic upgrade head
 
 ## Endpoints
 
-`/users` ["GET", "POST"]
-`/users/<name>` ["GET", "PUT", "DELETE"]
-`/groups/<name>` ["GET", "POST", "PUT", "DELETE"]
+- `/users` ["GET", "POST"]
+- `/users/<name>` ["GET", "PUT", "DELETE"]
+- `/groups/<name>` ["GET", "POST", "PUT", "DELETE"]
 
 Example
 ```
