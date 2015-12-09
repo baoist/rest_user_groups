@@ -32,4 +32,4 @@ WORKDIR /srv/app/rest_user_groups
 # Set the default command to execute
 # when creating a new container
 # i.e. using CherryPy to serve the application
-CMD python server.py
+CMD alembic upgrade head && python server.py
