@@ -1,3 +1,12 @@
+## Quickstart with Docker
+
+```bash
+./run.sh
+```
+
+
+## Other things
+
 ## Up and Running
 
 Get started using the API with the following commands:
