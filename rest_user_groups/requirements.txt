@@ -1,0 +1,5 @@
+flask
+cherrypy
+sqlalchemy
+alembic
+Flask-SQLAlchemy==1.0

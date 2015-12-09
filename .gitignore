@@ -1,0 +1,5 @@
+.env
+
+*.pyc
+
+rest_user_groups/config.py
