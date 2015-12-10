@@ -4,7 +4,7 @@
 ./run.sh
 ```
 
-Test all endpoints with curl
+Test all existing endpoints
 
 ```bash
 ./run_tests.sh
