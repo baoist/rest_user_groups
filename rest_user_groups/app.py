@@ -94,7 +94,8 @@ def update_group(name):
     users = params.get('users')
     if users:
         group = api.add_users_to_group(group, users)
-        return Response(response='Users added to group "%s".' % group.name, status=200, mimetype="application/json")
+        return jsonify(group=group._asdict(),
+                       users=[row._asdict() for row in group.users])
     else:
         return Response(response='No users provided.', status=404, mimetype="application/json")
 
