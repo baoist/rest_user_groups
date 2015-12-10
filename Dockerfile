@@ -6,7 +6,7 @@ FROM ubuntu
 MAINTAINER Brad Olson<iam@brad.io>
 
 # Add the application resources URL
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
+RUN echo "deb http://mirrors.us.kernel.org/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
 
 # Update the sources list
 RUN apt-get update
