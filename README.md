@@ -11,6 +11,7 @@ Test all existing endpoints
 ```
 
 Delete the docker machine
+
 ```bash
 docker-machine rm usergroups
 ```
