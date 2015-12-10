@@ -2,8 +2,6 @@ from flask import Flask, jsonify, request, Response
 from models import db
 import api
 
-import settings
-
 app = Flask(__name__)
 app.config.from_object('config.DevelopmentConfig')
 db.init_app(app)
@@ -114,4 +112,4 @@ def delete_group(name):
 
 
 if __name__ == '__main__':
-    app.run(debug=settings.debug)
+    app.run()
