@@ -5,12 +5,14 @@ from sqlalchemy import Column
 
 db = SQLAlchemy()
 
+
 class DictSerializableMixin(object):
     def _asdict(self):
         result = OrderedDict()
         for key in self.__mapper__.c.keys():
             result[key] = getattr(self, key)
         return result
+
 
 class User(db.Model, DictSerializableMixin):
     __tablename__ = 'users'
@@ -26,6 +28,7 @@ class User(db.Model, DictSerializableMixin):
         self.first_name = first_name
         self.last_name = last_name
         self.userid = userid
+
 
 class Group(db.Model, DictSerializableMixin):
     __tablename__ = 'groups'
