@@ -16,10 +16,10 @@ new_groupid=$(generate_string)
 # POST requests
 printf "\nPOST\n\n"
 
-printf "/users:\n%s\n" \
+printf "Create a user (/users):\n%s\n" \
   "$(curl -sb -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"first_name": "fname", "last_name": "lname", "userid": "'"$new_userid"'"}' $(docker-machine ip usergroups)/users)"
 
-printf "/groups/<groupid>:\n%s\n" \
+printf "Create a group (/groups/<groupid>):\n%s\n" \
   "$(curl -sb -H "Accept: application/json" -H "Content-type: application/json" -X POST $(docker-machine ip usergroups)/groups/$new_groupid)"
 
 pause
@@ -27,10 +27,10 @@ pause
 # PUT requests
 printf "\nPUT\n\n"
 
-printf "/users/<userid>:\n%s\n" \
+printf "Update a user (/users/<userid>):\n%s\n" \
   "$(curl -sb -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d ' {"first_name": "NewFirstName", "last_name": "NewLastName", "userid": "'"$new_userid"'"}' $(docker-machine ip usergroups)/users/$new_userid)"
 
-printf "/groups/<groupid>:\n%s\n" \
+printf "Attach a user to a group (/groups/<groupid>):\n%s\n" \
   "$(curl -sb -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"users": ["'$new_userid'"]}' $(docker-machine ip usergroups)/groups/$new_groupid)"
 
 pause
@@ -38,13 +38,13 @@ pause
 # GET requests
 printf "\nGET\n\n"
 
-printf "/users:\n%s\n" \
+printf "Get all users (/users):\n%s\n" \
   "$(curl -sb -H "Accept: application/json" "$(docker-machine ip usergroups)/users")"
 
-printf "/users/<userid>:\n%s\n" \
+printf "Get single user (/users/<userid>):\n%s\n" \
   "$(curl -sb -H "Accept: application/json" "$(docker-machine ip usergroups)/users/$new_userid")"
 
-printf "/groups/<groupid>:\n%s\n" \
+printf "Get single group, with associated users (/groups/<groupid>):\n%s\n" \
   "$(curl -sb -H "Accept: application/json" "$(docker-machine ip usergroups)/groups/$new_groupid")"
 
 pause
@@ -52,8 +52,8 @@ pause
 # DELETE requests
 printf "\nDELETE\n\n"
 
-printf "/groups/<groupid>:\n%s\n" \
+printf "Detach all users from a group (/groups/<groupid>):\n%s\n" \
   "$(curl -sb -H "Accept: application/json" -H "Content-type: application/json" -X DELETE $(docker-machine ip usergroups)/groups/$new_groupid)"
 
-printf "/users/<userid>:\n%s\n" \
+printf "Delete a user (/users/<userid>):\n%s\n" \
   "$(curl -sb -H "Accept: application/json" -H "Content-type: application/json" -X DELETE $(docker-machine ip usergroups)/users/$new_userid)"
