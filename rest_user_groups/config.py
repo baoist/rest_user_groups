@@ -10,10 +10,10 @@ class Config(object):
     host = os.getenv("DATABASE_HOST", "")
     db_name = os.getenv("DATABASE_NAME", "")
 
-    DB_URI = 'postgresql://%s:%s@%s:5432/%s' % (user,
-                                                password,
-                                                host,
-                                                db_name)
+    SQLALCHEMY_DATABASE_URI = 'postgresql://%s:%s@%s:5432/%s' % (user,
+                                                                 password,
+                                                                 host,
+                                                                 db_name)
 
 class DevelopmentConfig(Config):
     DEBUG = True

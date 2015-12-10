@@ -20,7 +20,6 @@ def index():
                             status=400,
                             mimetype="application/json")
 
-
 @app.route('/users/<path:userid>', methods=['GET'])
 def get_user(userid):
     user = api.find_user(userid)
